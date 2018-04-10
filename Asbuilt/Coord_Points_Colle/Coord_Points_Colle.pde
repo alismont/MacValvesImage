@@ -8,6 +8,7 @@ int i;
 String line = null;
 int Index=0;
 int IndexRelatif=0;
+int memoBoucle;
 
 int[] cx = new int[10000];
 int[] cy = new int[10000];
@@ -56,9 +57,22 @@ float[] ColorPixel_r = new float[30000];
 float[] ColorPixel_g = new float[30000];
 float[] ColorPixel_b = new float[30000];
 float[] ColorPixel_a = new float[30000];
-int Rayon=35;// rayon en nombre de pixels
+int Rayon=32;// rayon en nombre de pixels
 int x0,y0,x,y;
+float Moyenne_R=0;
+float Moyenne_G=0;
+float Moyenne_B=0;
+float Min_Color_R=10000;
+float Min_Color_G=10000;
+float Min_Color_B=10000;
+float Max_Color_R=-10000;
+float Max_Color_G=-10000;
+float Max_Color_B=-10000;
 
+int Point1_TrouX=0,Point1_TrouY=0;
+int Point2_TrouX=0,Point2_TrouY=0;
+int Points=0;
+int boucle=0;
      color black = color(0);
 //---------------SETUP-----------------------------
 void setup() {
@@ -68,7 +82,7 @@ void setup() {
  
  photo = loadImage("Lot_pieces.jpg");
 
- CentrePieces_CoordX0[1]=455;CentrePieces_CoordY0[1]=727;
+ CentrePieces_CoordX0[1]=1064;CentrePieces_CoordY0[1]=742;
    outputA = createWriter("data/PointsColor_a_Pixels.txt");
   outputR = createWriter("data/PointsColor_r_Pixels.txt");
   outputG = createWriter("data/PointsColor_g_Pixels.txt");
@@ -85,10 +99,10 @@ void setup() {
 void draw() {
       image(photo, 0, 0);
       //filter(GRAY);
-      //filter(INVERT);
+      filter(INVERT);
       //filter(POSTERIZE, 5);
       //filter(ERODE);
-      filter(DILATE);
+      //filter(DILATE);
 //background(photo);
 //set(0, 0, photo);
 
@@ -112,7 +126,10 @@ color a = photo.get(x,y);
        r = red(a);
        g = green(a);
        b = blue(a);
+Moyenne_R=(r+Moyenne_R)/2;
 ColorPixel_r[inc]=r;ColorPixel_g[inc]=g;ColorPixel_b[inc]=b;
+if (r<=Min_Color_R) Min_Color_R=r;
+if (r>=Max_Color_R) Max_Color_R=r;
 set(x, y, black);
 inc++;
 
@@ -124,6 +141,58 @@ outputT.println(t);
 outputX.println(x);
 outputY.println(y);
   }
+  
+
+
+ //Faire une boucle pour enregistrer les radian -> valeurs min ppas à pas 
+int num = 0;
+
+switch(num) {
+  case 0: 
+  println("case 0");
+         for (boucle =0; boucle < 6201; boucle++) {
+           if (ColorPixel_r[boucle] <= Min_Color_R+5){
+               Point1_TrouX=CerclePieces_CoordX[boucle];
+                Point1_TrouY=CerclePieces_CoordY[boucle];
+               num=1;
+               memoBoucle=boucle;
+                   break;
+           }
+         }
+
+  case 1: 
+    println("case 1");
+         for (boucle =memoBoucle; boucle < 6201; boucle++) {
+           if (ColorPixel_r[boucle] > Moyenne_R){
+               num=2;
+               memoBoucle=boucle;
+                   break;
+           }
+           }
+
+      case 2: 
+        println("case 2");
+         for (boucle =memoBoucle; boucle <= 6201; boucle++) {
+           if (ColorPixel_r[boucle] <= Min_Color_R+5){
+               Point2_TrouX=CerclePieces_CoordX[boucle];
+                Point2_TrouY=CerclePieces_CoordY[boucle];
+               num=0;
+               boucle=0;
+                   break;
+           }
+         }
+
+}
+ 
+  println("Moyenne R: "+Moyenne_R);
+ println("Minimum R: "+Min_Color_R); 
+ println("Maximum R: "+Max_Color_R); 
+ 
+  println("Point1_TrouX: "+Point1_TrouX);
+ println("Point1_TrouY: "+Point1_TrouY); 
+  println("Point2_TrouX: "+Point2_TrouX);
+ println("Point2_TrouY: "+Point2_TrouY); 
+ 
    outputA.flush(); // Writes the remaining data to the file
  outputA.close(); // Finishes the file
  outputR.flush(); // Writes the remaining data to the file
@@ -140,20 +209,8 @@ outputY.println(y);
  outputY.close(); // Finishes the file
  
  
- x=632 ;
- y=744 ;
 
- color a = photo.get(x,y);
-       r = red(a);
-       g = green(a);
-       b = blue(a);
- println("a: "+a);
- println("r: "+r);
- println("g: "+g);
- println("b: "+b);
- float Total=r+g+b;
- println("Total: "+Total);
-//exit();
+exit();
 
 }
 
