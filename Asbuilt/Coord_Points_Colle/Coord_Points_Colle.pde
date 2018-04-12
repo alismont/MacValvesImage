@@ -1,6 +1,10 @@
 
+
+  
+
+
 PImage photo;
-PrintWriter outputA,outputR,outputG,outputB,outputT;
+PrintWriter outputA,outputR,outputR_int,outputG,outputB,outputT;
 PrintWriter outputX,outputY;
 boolean fin=true;
 boolean flag=false;
@@ -54,6 +58,7 @@ int[] CentrePieces_CoordY0 = new int[100];
 int[] CerclePieces_CoordX = new int[30000];
 int[] CerclePieces_CoordY = new int[30000];
 float[] ColorPixel_r = new float[30000];
+float[] ColorPixel_r_int = new float[30000];
 float[] ColorPixel_g = new float[30000];
 float[] ColorPixel_b = new float[30000];
 float[] ColorPixel_a = new float[30000];
@@ -100,12 +105,15 @@ void setup() {
  photo = loadImage("Lot_pieces.jpg");
  
 // COORDs CENTRE
+// Piece 1 = 456,727
+// Piece 2 = 657,730
 // Piece 3 = 859,736
-// Piece 4 = 1063,741
- CentrePieces_CoordX0[1]=1063;CentrePieces_CoordY0[1]=741;
+// Piece 4 = 1064,741
+ CentrePieces_CoordX0[1]=1064;CentrePieces_CoordY0[1]=741;
  
    outputA = createWriter("data/PointsColor_a_Pixels.txt");
   outputR = createWriter("data/PointsColor_r_Pixels.txt");
+    outputR_int = createWriter("data/PointsColor_r_int_Pixels.txt");
   outputG = createWriter("data/PointsColor_g_Pixels.txt");
   outputB = createWriter("data/PointsColor_b_Pixels.txt");
     outputT = createWriter("data/PointsRADIAN_t_Pixels.txt");
@@ -165,6 +173,13 @@ outputT.println(t);
 outputX.println(x);
 outputY.println(y);
   }
+
+//Intégration courbe r -> r_int
+for (boucle =1; boucle < 6201; boucle++) {
+ColorPixel_r_int[boucle] = ((ColorPixel_r_int[boucle-1] * 100) + ColorPixel_r[boucle] ) / (100 + 1);
+outputR_int.println(ColorPixel_r_int[boucle]);
+}
+
   
 //Calcul niveau entre Max & Min  
  EntreMAxEtMin_R= (Max_Color_R-Min_Color_R)-40;
@@ -174,12 +189,12 @@ outputY.println(y);
 
 //************************************************************************************
 //CAS 1: INCLINE VERS GAUCHE TIROIR A O°
-if (ColorPixel_r[1] > EntreMAxEtMin_R){
+if (ColorPixel_r_int[1] > EntreMAxEtMin_R){
 switch(num) {
   case 0: 
   println("case 0");
          for (boucle =1; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] > EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
                Radian1_t=Radian_t[boucle];
                num=1;
                memoBoucle=boucle+100;
@@ -190,7 +205,7 @@ switch(num) {
   case 1: 
     println("case 1");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] < EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
                 Radian2_t=Radian_t[boucle];
                num=2;
                memoBoucle=boucle+100;
@@ -200,7 +215,7 @@ switch(num) {
   case 2: 
     println("case 2");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] > EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
                Radian3_t=Radian_t[boucle];
                num=3;
                memoBoucle=boucle+100;
@@ -211,7 +226,7 @@ switch(num) {
              case 3: 
     println("case 3");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] < EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
                Radian4_t=Radian_t[boucle];
                num=4;
                memoBoucle=boucle+100;
@@ -224,7 +239,7 @@ switch(num) {
              case 4: 
     println("case 4");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] > EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
                Radian5_t=Radian_t[boucle+100];
                num=5;
                boucle=0;
@@ -245,7 +260,7 @@ switch(num) {
   case 0: 
   println("case 0");
          for (boucle =1; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] > EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
                Radian1_t=Radian_t[boucle];
                num=1;
                memoBoucle=boucle+100;
@@ -256,7 +271,7 @@ switch(num) {
   case 1: 
     println("case 1");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] > EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
                 Radian2_t=Radian_t[boucle];
                num=2;
                memoBoucle=boucle+100;
@@ -266,7 +281,7 @@ switch(num) {
   case 2: 
     println("case 2");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] < EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
                Radian3_t=Radian_t[boucle];
                num=3;
                memoBoucle=boucle+100;
@@ -280,7 +295,7 @@ switch(num) {
              case 3: 
     println("case 3");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] > EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
                Radian4_t=Radian_t[boucle];
                num=4;
                memoBoucle=boucle+100;
@@ -291,7 +306,7 @@ switch(num) {
              case 4: 
     println("case 4");
          for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r[boucle] < EntreMAxEtMin_R){
+           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
                Radian5_t=Radian_t[boucle+100];
                num=5;
                boucle=0;
@@ -348,6 +363,8 @@ ellipse(x, y, 5, 5);
  outputA.close(); // Finishes the file
  outputR.flush(); // Writes the remaining data to the file
  outputR.close(); // Finishes the file
+  outputR_int.flush(); // Writes the remaining data to the file
+ outputR_int.close(); // Finishes the file
   outputG.flush(); // Writes the remaining data to the file
  outputG.close(); // Finishes the file
   outputB.flush(); // Writes the remaining data to the file
