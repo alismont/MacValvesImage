@@ -6,6 +6,7 @@
 PImage photo;
 PrintWriter outputA,outputR,outputR_int,outputG,outputB,outputT;
 PrintWriter outputX,outputY;
+
 boolean fin=true;
 boolean flag=false;
 int i;
@@ -109,7 +110,13 @@ void setup() {
 // Piece 2 = 657,730
 // Piece 3 = 859,736
 // Piece 4 = 1064,741
- CentrePieces_CoordX0[1]=1064;CentrePieces_CoordY0[1]=741;
+// Piece 5 = 1269,750
+// Piece 6 = 1474,759
+// Piece 7 = 1676,766
+// Piece 11 = 443,1023
+// Piece 12 = 443,1023
+// Piece 13 = 848,1032
+ CentrePieces_CoordX0[1]=848;CentrePieces_CoordY0[1]=1032;
  
    outputA = createWriter("data/PointsColor_a_Pixels.txt");
   outputR = createWriter("data/PointsColor_r_Pixels.txt");
@@ -119,7 +126,7 @@ void setup() {
     outputT = createWriter("data/PointsRADIAN_t_Pixels.txt");
     outputX = createWriter("data/Points_x_Pixels.txt");
      outputY = createWriter("data/Points_y_Pixels.txt");
-     
+ 
 
 
 }
@@ -127,6 +134,7 @@ void setup() {
 //----------------DRAW----------------------------
 void draw() {
       image(photo, 0, 0);
+      //background(photo);
       //filter(GRAY);
       filter(INVERT);
       //filter(POSTERIZE, 5);
@@ -182,14 +190,14 @@ outputR_int.println(ColorPixel_r_int[boucle]);
 
   
 //Calcul niveau entre Max & Min  
- EntreMAxEtMin_R= (Max_Color_R-Min_Color_R)-40;
+ EntreMAxEtMin_R= (Max_Color_R-Min_Color_R)-60;
 
 
  //Faire une boucle pour enregistrer les radian -> valeurs min ppas à pas 
 
 //************************************************************************************
 //CAS 1: INCLINE VERS GAUCHE TIROIR A O°
-if (ColorPixel_r_int[1] > EntreMAxEtMin_R){
+if (ColorPixel_r_int[500] > EntreMAxEtMin_R){
 switch(num) {
   case 0: 
   println("case 0");
@@ -255,7 +263,7 @@ switch(num) {
 }
 //************************************************************************************
 //CAS 1: INCLINE VERS GAUCHE TROU A O°
-if (ColorPixel_r[1] < EntreMAxEtMin_R){
+if (ColorPixel_r[500] < EntreMAxEtMin_R){
 switch(num) {
   case 0: 
   println("case 0");
@@ -376,7 +384,9 @@ ellipse(x, y, 5, 5);
    outputY.flush(); // Writes the remaining data to the file
  outputY.close(); // Finishes the file
  
- 
+
+
+save("Data/outputImage.jpg");
 
 //exit();
 
