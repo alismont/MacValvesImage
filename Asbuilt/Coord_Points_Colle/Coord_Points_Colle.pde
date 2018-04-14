@@ -110,7 +110,7 @@ int boucle=0;
      color jaune = color(255, 204, 0);
      color rouge = color(240, 28, 28);
      
-     int PTS = 4;
+     int PTS = 1;
 //---------------SETUP-----------------------------
 void setup() {
     size(2592, 3872);
@@ -169,7 +169,7 @@ void draw() {
 // Piece 13 = 848,1032
 
 
-while (PTS < 5) {
+while (PTS < 11) {
   
 
 //Point central pièce
@@ -224,8 +224,8 @@ if (ColorPixel_r_int[boucle]>=Max_Color_R_int) Max_Color_R_int=r;
 
 
 //Calcul niveau entre Max & Min  
- EntreMAxEtMin_R= (Max_Color_R-Min_Color_R)-70;
- EntreMAxEtMin_R_int= (Max_Color_R-Min_Color_R_int)-70;
+ EntreMAxEtMin_R= (Max_Color_R-Min_Color_R)-60;
+ EntreMAxEtMin_R_int= (Max_Color_R_int-Min_Color_R)-60;
 // recherche Trou Droit & Gauche
 //CAS 1: INCLINE VERS GAUCHE TIROIR A O°
 
@@ -381,7 +381,7 @@ switch(num) {
  println("Minimum R: "+Min_Color_R); 
  println("Maximum R: "+Max_Color_R); 
   println("MaxMin R: "+EntreMAxEtMin_R); 
-  println("MaxMin R: "+EntreMAxEtMin_R_int); 
+  println("MaxMin R_int: "+EntreMAxEtMin_R_int); 
 
  
  println("Point1_Radian: "+Radian1_t);
@@ -403,7 +403,8 @@ y = y0-(ceil( y0 + Rayon * sin(Trou_Droit))-y0);
 // lecture r vérification
 color a = photo.get(x,y);
 r = red(a);
-if (r>EntreMAxEtMin_R){
+
+if (r>EntreMAxEtMin_R+200){
     println("Trou_Droit > r");
                 if (Trou_Droit>=1.57) {
                       println("Trou_Droit >= 1.57");
@@ -442,7 +443,8 @@ if (r>EntreMAxEtMin_R){
                             ellipse(x, y, 5, 5);                     
                
                 }
-       } else {
+       } else 
+       {
         // AFFICHAGE COORD TROUs  DROIT   
 x0=CentrePieces_CoordX0[PTS] ;
 y0=CentrePieces_CoordY0[PTS] ;
