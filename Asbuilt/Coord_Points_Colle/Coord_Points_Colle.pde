@@ -1,11 +1,5 @@
 
-
-  
-
-
 PImage photo;
-PrintWriter outputA,outputR,outputR_int,outputG,outputB,outputT;
-PrintWriter outputX,outputY;
 
 boolean fin=true;
 boolean flag=false;
@@ -15,6 +9,7 @@ int Index=0;
 int IndexRelatif=0;
 int memoBoucle;
 int num = 0;
+int numm = 0;
 int[] cx = new int[10000];
 int[] cy = new int[10000];
 
@@ -64,6 +59,7 @@ float[] ColorPixel_g = new float[30000];
 float[] ColorPixel_b = new float[30000];
 float[] ColorPixel_a = new float[30000];
 float[] Radian_t = new float[30000];
+float[] Radian_Max_TBL = new float[30000];
 float Radian_t_ok=0;
 float Trou_Gauche=0;
 float Trou_Droit=0;
@@ -71,7 +67,7 @@ int[] Trou_GaucheX = new int[100];
 int[] Trou_GaucheY = new int[100];
 int[] Trou_DroitX = new int[100];
 int[] Trou_DroitY = new int[100];
-int Rayon=32;// rayon en nombre de pixels
+int Rayon=33;// rayon en nombre de pixels
 int x0,y0,x,y;
 float Moyenne_R=0;
 float Moyenne_G=0;
@@ -104,6 +100,10 @@ float Radian4_t;
 float Radian5_t;
 float Radian6_t;
 float Radian7_t;
+float Radian_Max=0;
+float Radian_Min=0;
+  int loop=0;
+  int passage=0;
 int Points=0;
 int boucle=0;
      color black = color(0);
@@ -118,63 +118,121 @@ void setup() {
  //Etude Date:06-04-2018
  
  photo = loadImage("Lot_pieces.jpg");
- 
-
-
- 
-   outputA = createWriter("data/PointsColor_a_Pixels.txt");
-  outputR = createWriter("data/PointsColor_r_Pixels.txt");
-    outputR_int = createWriter("data/PointsColor_r_int_Pixels.txt");
-  outputG = createWriter("data/PointsColor_g_Pixels.txt");
-  outputB = createWriter("data/PointsColor_b_Pixels.txt");
-    outputT = createWriter("data/PointsRADIAN_t_Pixels.txt");
-    outputX = createWriter("data/Points_x_Pixels.txt");
-     outputY = createWriter("data/Points_y_Pixels.txt");
- 
-
 
 }
 
 //----------------DRAW----------------------------
 void draw() {
       image(photo, 0, 0);
-      filter(DILATE);
-      filter(INVERT);
+     // filter(DILATE);
+      //filter(INVERT);
+      filter(GRAY);
+
 
 
 // Boucle des 50 pièces A FAIRE.....
 // COORDs CENTRE
-// Piece 1 = 456,727
  CentrePieces_CoordX0[1]=456;CentrePieces_CoordY0[1]=727;
-// Piece 2 = 657,730
  CentrePieces_CoordX0[2]=657;CentrePieces_CoordY0[2]=730;
-// Piece 3 = 859,736
- CentrePieces_CoordX0[3]=859;CentrePieces_CoordY0[3]=736;
-// Piece 4 = 1064,741
+ CentrePieces_CoordX0[3]=860;CentrePieces_CoordY0[3]=734;
  CentrePieces_CoordX0[4]=1064;CentrePieces_CoordY0[4]=741;
-// Piece 5 = 1269,750
- CentrePieces_CoordX0[5]=1269;CentrePieces_CoordY0[5]=750;
-// Piece 6 = 1474,759
- CentrePieces_CoordX0[6]=1474;CentrePieces_CoordY0[6]=759;
-// Piece 7 = 1676,766
+ CentrePieces_CoordX0[5]=1270;CentrePieces_CoordY0[5]=749;
+ CentrePieces_CoordX0[6]=1474;CentrePieces_CoordY0[6]=758;
  CentrePieces_CoordX0[7]=1676;CentrePieces_CoordY0[7]=766;
-// Piece 8 = 1878,790
- CentrePieces_CoordX0[8]=1878;CentrePieces_CoordY0[8]=780;
-// Piece 9 = 2079,790
- CentrePieces_CoordX0[9]=2079;CentrePieces_CoordY0[9]=790;
-// Piece 10 = 2277,804
- CentrePieces_CoordX0[10]=2278;CentrePieces_CoordY0[10]=802;
-// Piece 11 = 443,1023
-// Piece 12 = 443,1023
-// Piece 13 = 848,1032
+ CentrePieces_CoordX0[8]=1878;CentrePieces_CoordY0[8]=778;
+ CentrePieces_CoordX0[9]=2080;CentrePieces_CoordY0[9]=789;
+ CentrePieces_CoordX0[10]=2279;CentrePieces_CoordY0[10]=801;
+ 
+CentrePieces_CoordX0[11]=440;CentrePieces_CoordY0[11]=1023;
+CentrePieces_CoordX0[12]=644;CentrePieces_CoordY0[12]=1027;
+CentrePieces_CoordX0[13]=848;CentrePieces_CoordY0[13]=1034;
+CentrePieces_CoordX0[14]=1052;CentrePieces_CoordY0[14]=1038;
+CentrePieces_CoordX0[15]=1257;CentrePieces_CoordY0[15]=1046;
+CentrePieces_CoordX0[16]=1462;CentrePieces_CoordY0[16]=1054;
+CentrePieces_CoordX0[17]=1666;CentrePieces_CoordY0[17]=1065;
+CentrePieces_CoordX0[18]=1867;CentrePieces_CoordY0[18]=1076;
+CentrePieces_CoordX0[19]=2069;CentrePieces_CoordY0[19]=1088;
+CentrePieces_CoordX0[20]=2269;CentrePieces_CoordY0[20]=1098;
 
+CentrePieces_CoordX0[21]=423;CentrePieces_CoordY0 [21]=1320;
+CentrePieces_CoordX0[22]=627;CentrePieces_CoordY0 [22]=1325;
+CentrePieces_CoordX0[23]=829;CentrePieces_CoordY0 [23]=1332;
+CentrePieces_CoordX0[24]=1036;CentrePieces_CoordY0[24]=1338;
+CentrePieces_CoordX0[25]=1243;CentrePieces_CoordY0[25]=1347;
+CentrePieces_CoordX0[26]=1451;CentrePieces_CoordY0[26]=1356;
+CentrePieces_CoordX0[27]=1655;CentrePieces_CoordY0[27]=1364;
+CentrePieces_CoordX0[28]=1861;CentrePieces_CoordY0[28]=1375;
+CentrePieces_CoordX0[29]=2062;CentrePieces_CoordY0[29]=1383;
+CentrePieces_CoordX0[30]=2263;CentrePieces_CoordY0[30]=1394;
 
-while (PTS < 11) {
+CentrePieces_CoordX0[31]=411;CentrePieces_CoordY0 [31]=1622;
+CentrePieces_CoordX0[32]=613;CentrePieces_CoordY0 [32]=1627;
+CentrePieces_CoordX0[33]=817;CentrePieces_CoordY0 [33]=1634;
+CentrePieces_CoordX0[34]=1025;CentrePieces_CoordY0[34]=1645;
+CentrePieces_CoordX0[35]=1233;CentrePieces_CoordY0[35]=1652;
+CentrePieces_CoordX0[36]=1439;CentrePieces_CoordY0[36]=1660;
+CentrePieces_CoordX0[37]=1647;CentrePieces_CoordY0[37]=1667;
+CentrePieces_CoordX0[38]=1851;CentrePieces_CoordY0[38]=1676;
+CentrePieces_CoordX0[39]=2054;CentrePieces_CoordY0[39]=1685;
+CentrePieces_CoordX0[40]=2254;CentrePieces_CoordY0[40]=1694;
+
+CentrePieces_CoordX0[41]=397;CentrePieces_CoordY0 [41]=1925;
+CentrePieces_CoordX0[42]=600;CentrePieces_CoordY0 [42]=1933;
+CentrePieces_CoordX0[43]=805;CentrePieces_CoordY0 [43]=1942;
+CentrePieces_CoordX0[44]=1010;CentrePieces_CoordY0[44]=1950;
+CentrePieces_CoordX0[45]=1218;CentrePieces_CoordY0[45]=1957;
+CentrePieces_CoordX0[46]=1427;CentrePieces_CoordY0[46]=1966;
+CentrePieces_CoordX0[47]=1632;CentrePieces_CoordY0[47]=1973;
+CentrePieces_CoordX0[48]=1839;CentrePieces_CoordY0[48]=1981;
+CentrePieces_CoordX0[49]=2043;CentrePieces_CoordY0[49]=1990;
+CentrePieces_CoordX0[50]=2243;CentrePieces_CoordY0[50]=1996;
+
+CentrePieces_CoordX0[51]=386;CentrePieces_CoordY0 [51]=2229;
+CentrePieces_CoordX0[52]=588;CentrePieces_CoordY0 [52]=2238;
+CentrePieces_CoordX0[53]=792;CentrePieces_CoordY0 [53]=2246;
+CentrePieces_CoordX0[54]=998;CentrePieces_CoordY0[54]=2256;
+CentrePieces_CoordX0[55]=1205;CentrePieces_CoordY0[55]=2265;
+CentrePieces_CoordX0[56]=1412;CentrePieces_CoordY0[56]=2272;
+CentrePieces_CoordX0[57]=1619;CentrePieces_CoordY0[57]=2280;
+CentrePieces_CoordX0[58]=1825;CentrePieces_CoordY0[58]=2289;
+CentrePieces_CoordX0[59]=2029;CentrePieces_CoordY0[59]=2293;
+CentrePieces_CoordX0[60]=2229;CentrePieces_CoordY0[60]=2299;
+
+CentrePieces_CoordX0[61]=378;CentrePieces_CoordY0 [61]=2530;
+CentrePieces_CoordX0[62]=580;CentrePieces_CoordY0 [62]=2541;
+CentrePieces_CoordX0[63]=784;CentrePieces_CoordY0 [63]=2550;
+CentrePieces_CoordX0[64]=991;CentrePieces_CoordY0 [64]=2560;
+CentrePieces_CoordX0[65]=1197;CentrePieces_CoordY0[65]=2567;
+CentrePieces_CoordX0[66]=1401;CentrePieces_CoordY0[66]=2576;
+CentrePieces_CoordX0[67]=1607;CentrePieces_CoordY0[67]=2583;
+CentrePieces_CoordX0[68]=1811;CentrePieces_CoordY0[68]=2590;
+CentrePieces_CoordX0[69]=2014;CentrePieces_CoordY0[69]=2596;
+CentrePieces_CoordX0[70]=2215;CentrePieces_CoordY0[70]=2597;
+
+CentrePieces_CoordX0[71]=373;CentrePieces_CoordY0 [71]=2831;
+CentrePieces_CoordX0[72]=578;CentrePieces_CoordY0 [72]=2842;
+CentrePieces_CoordX0[73]=779;CentrePieces_CoordY0 [73]=2853;
+CentrePieces_CoordX0[74]=983;CentrePieces_CoordY0 [74]=2862;
+CentrePieces_CoordX0[75]=1188;CentrePieces_CoordY0[75]=2872;
+CentrePieces_CoordX0[76]=1390;CentrePieces_CoordY0[76]=2879;
+CentrePieces_CoordX0[77]=1596;CentrePieces_CoordY0[77]=2882;
+CentrePieces_CoordX0[78]=1799;CentrePieces_CoordY0[78]=2891;
+CentrePieces_CoordX0[79]=2000;CentrePieces_CoordY0[79]=2895;
+CentrePieces_CoordX0[80]=2197;CentrePieces_CoordY0[80]=2889;
+
+while (PTS < 81) {
+  //println("PTS"+PTS);
   
-
+//INIT
+numm=0;
+loop=0;
+Max_Color_R=0;
+Min_Color_R=300;
 //Point central pièce
 x0=CentrePieces_CoordX0[PTS] ;
 y0=CentrePieces_CoordY0[PTS] ;
+  //println("X0:"+x0);
+  //println("y0:"+y0);
 int inc=0;
 
 //Cercle Color de chaque points du cercle
@@ -191,302 +249,49 @@ color a = photo.get(x,y);
        b = blue(a);
 Moyenne_R=(r+Moyenne_R)/2;
 ColorPixel_r[inc]=r;ColorPixel_g[inc]=g;ColorPixel_b[inc]=b;
-if (r<=Min_Color_R) Min_Color_R=r;
-if (r>=Max_Color_R) Max_Color_R=r;
-
+if (r<=Min_Color_R) {
+  Min_Color_R=r;
+  Radian_Min=t;
+}
+if (r>=Max_Color_R) {
+  Max_Color_R=r;
+  Radian_Max=t;
+}
 set(x, y, black);
 inc++;
-
-// save files
-outputA.println(a);
-outputR.println(r);
-outputG.println(g); 
-outputB.println(b); 
-outputT.println(t); 
-outputX.println(x);
-outputY.println(y);
   }
 
+
 //Intégration courbe r -> r_int
-for (boucle =1; boucle < 6201; boucle++) {
+for (boucle =1; boucle < 6201; boucle=boucle+1) {
 ColorPixel_r_int[boucle] = ((ColorPixel_r_int[boucle-1] * 100) + ColorPixel_r[boucle] ) / (100 + 1);
-outputR_int.println(ColorPixel_r_int[boucle]);
-if (ColorPixel_r_int[boucle]<=Min_Color_R_int) Min_Color_R_int=r;
-if (ColorPixel_r_int[boucle]>=Max_Color_R_int) Max_Color_R_int=r;
 }
 
-  
 
-
-
-
-//************************************************************************************
-
-
-//Calcul niveau entre Max & Min  
- EntreMAxEtMin_R= (Max_Color_R-Min_Color_R)-60;
- EntreMAxEtMin_R_int= (Max_Color_R_int-Min_Color_R)-60;
-// recherche Trou Droit & Gauche
-//CAS 1: INCLINE VERS GAUCHE TIROIR A O°
-
-if (ColorPixel_r_int[500] > EntreMAxEtMin_R){
-    println("CAS1");
-switch(num) {
-  case 0: 
-  println("case 0");
-         for (boucle =501; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
-               Radian1_t=Radian_t[boucle];
-               num=1;
-               memoBoucle=boucle+100;
-                   break;
-           }
-         }
-
-  case 1: 
-    println("case 1");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
-                Radian2_t=Radian_t[boucle];
-               num=2;
-               memoBoucle=boucle+100;
-                break;
-           }
-           }
-  case 2: 
-    println("case 2");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
-               Radian3_t=Radian_t[boucle];
-               num=3;
-               Radian_t_ok=((Radian3_t-Radian2_t)/2)+Radian2_t; 
-               println(Radian_t_ok);
-               if (Radian_t_ok>1.57) {
-                 Trou_Droit=Radian_t_ok-1.57;
-                 Trou_Gauche=Trou_Droit+3.14;
-               }
-               if (Radian_t_ok<=1.57) {
-                 Trou_Droit=Radian_t_ok+4.71;
-                 Trou_Gauche=Trou_Droit-3.14;
-               }              
-               memoBoucle=boucle+100;
-                break;
-           }
-           }
-           
-    case 3: 
-    println("case 3");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
-               Radian4_t=Radian_t[boucle];
-               num=4;
-               memoBoucle=boucle+100;
-
-                break;
-           }
-           }
-     case 4: 
-    println("case 4");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
-               Radian5_t=Radian_t[boucle+100];
-               num=5;
-               boucle=0;
-                break;
-           }
-           }
-    case 5: 
-    println("case 5");  
-                   boucle=0;
-                break;
-           
-}
-}
-//************************************************************************************
-//CAS 2: INCLINE VERS GAUCHE TROU A O°
-if (ColorPixel_r[500] < EntreMAxEtMin_R){
-  println("CAS2");
-switch(num) {
-  case 0: 
-  println("case 0");
-         for (boucle =1; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
-               Radian1_t=Radian_t[boucle];
-               num=1;
-               memoBoucle=boucle+100;
-                   break;
-           }
-         }
-
-  case 1: 
-    println("case 1");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
-                Radian2_t=Radian_t[boucle];
-               num=2;
-               memoBoucle=boucle+100;
-                break;
-           }
-           }
-  case 2: 
-    println("case 2");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
-               Radian3_t=Radian_t[boucle];
-               num=3;
-               memoBoucle=boucle+100;
-               Radian_t_ok=((Radian3_t-Radian2_t)/2)+Radian2_t;
-               if (Radian_t_ok>1.57) {
-                 Trou_Droit=Radian_t_ok-1.57;
-                 Trou_Gauche=Trou_Droit+3.14;
-               }
-               if (Radian_t_ok<=1.57) {
-                 Trou_Droit=Radian_t_ok+4.71;
-                 Trou_Gauche=Trou_Droit-3.14;
-               }  
-                break;
-           }
-           }
-           
-             case 3: 
-    println("case 3");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] > EntreMAxEtMin_R){
-               Radian4_t=Radian_t[boucle];
-               num=4;
-               memoBoucle=boucle+100;
-
-                break;
-           }
-           }
-             case 4: 
-    println("case 4");
-         for (boucle =memoBoucle; boucle < 6201; boucle++) {
-           if (ColorPixel_r_int[boucle] < EntreMAxEtMin_R){
-               Radian5_t=Radian_t[boucle+100];
-               num=5;
-               boucle=0;
-                break;
-           }
-           }
-              case 5: 
-    println("case 5");  
-                   boucle=0;
-                break;
-           
-}
-}
-//============================================================================
-  println("Moyenne R: "+Moyenne_R);
- println("Minimum R: "+Min_Color_R); 
- println("Maximum R: "+Max_Color_R); 
-  println("MaxMin R: "+EntreMAxEtMin_R); 
-  println("MaxMin R_int: "+EntreMAxEtMin_R_int); 
-
- 
- println("Point1_Radian: "+Radian1_t);
-  println("Point2_Radian: "+Radian2_t);
-   println("Point3_Radian: "+Radian3_t);
-    println("Point4_Radian: "+Radian4_t);
-     println("Point5_Radian: "+Radian5_t);
-     println("Radian: "+Radian_t_ok);
-          println("Trou Droit: "+Trou_Droit);
-                    println("Trou Gauche: "+Trou_Gauche);
-
-                    
-                    
-
-x0=CentrePieces_CoordX0[PTS] ;
-y0=CentrePieces_CoordY0[PTS] ;
-x= ceil(x0 + Rayon * cos(Trou_Droit));
-y = y0-(ceil( y0 + Rayon * sin(Trou_Droit))-y0);          
-// lecture r vérification
-color a = photo.get(x,y);
-r = red(a);
-
-if (r>EntreMAxEtMin_R+200){
-    println("Trou_Droit > r");
-                if (Trou_Droit>=1.57) {
-                      println("Trou_Droit >= 1.57");
-                 Trou_Droit=Trou_Droit-1.57;
-                   x= ceil(x0 + Rayon * cos(Trou_Droit));
-                    y = y0-(ceil( y0 + Rayon * sin(Trou_Droit))-y0);
-                        Trou_DroitX[PTS]=x;
-                          Trou_DroitY[PTS]=y;
-                            set(x, y, rouge);
-                            ellipse(x, y, 5, 5);
-                            
-                 Trou_Gauche=Trou_Droit+1.57;
-                   x= ceil(x0 + Rayon * cos(Trou_Gauche));
-                    y = y0-(ceil( y0 + Rayon * sin(Trou_Gauche))-y0);
-                        Trou_GaucheX[PTS]=x;
-                          Trou_GaucheY[PTS]=y;
-                            set(x, y, rouge);
-                            ellipse(x, y, 5, 5);                    
-                }
-               else {
-                     println("Trou_Droit < 1.57");
-                 Trou_Droit=Trou_Droit+1.57;
-                   x= ceil(x0 + Rayon * cos(Trou_Droit));
-                    y = y0-(ceil( y0 + Rayon * sin(Trou_Droit))-y0);
-                        Trou_DroitX[PTS]=x;
-                          Trou_DroitY[PTS]=y;
-                            set(x, y, rouge);
-                            ellipse(x, y, 5, 5); 
-                            
-                 Trou_Gauche=Trou_Droit+3.14;
-                   x= ceil(x0 + Rayon * cos(Trou_Gauche));
-                    y = y0-(ceil( y0 + Rayon * sin(Trou_Gauche))-y0);
-                        Trou_GaucheX[PTS]=x;
-                          Trou_GaucheY[PTS]=y;
-                            set(x, y, rouge);
-                            ellipse(x, y, 5, 5);                     
-               
-                }
-       } else 
-       {
-        // AFFICHAGE COORD TROUs  DROIT   
-x0=CentrePieces_CoordX0[PTS] ;
-y0=CentrePieces_CoordY0[PTS] ;
-x= ceil(x0 + Rayon * cos(Trou_Droit));
-y = y0-(ceil( y0 + Rayon * sin(Trou_Droit))-y0);
-                           set(x, y, rouge);
-                           ellipse(x, y, 5, 5); 
-          Trou_DroitX[PTS]=x;
+  x= ceil(x0 + Rayon * cos(Radian_Min));
+  y = y0-(ceil( y0 + Rayon * sin(Radian_Min))-y0);
+            Trou_DroitX[PTS]=x;
           Trou_DroitY[PTS]=y;
-x= ceil(x0 + Rayon * cos(Trou_Gauche));
-y = y0-(ceil( y0 + Rayon * sin(Trou_Gauche))-y0);
-                           set(x, y, rouge);
-                           ellipse(x, y, 5, 5);                          
+                             set(x, y, rouge);
+                           ellipse(x, y, 5, 5);          
+          Radian_t_ok= Radian_Min-3.14;
+         x= ceil(x0 + Rayon * cos(Radian_t_ok));
+          y = y0-(ceil( y0 + Rayon * sin(Radian_t_ok))-y0);
           Trou_GaucheX[PTS]=x;
-          Trou_GaucheY[PTS]=y; 
-       }
+          Trou_GaucheY[PTS]=y;
+                             set(x, y, rouge);
+                           ellipse(x, y, 5, 5); 
 
 
-
-//TRAITEMENT DES FICHIERS
-   outputA.flush(); // Writes the remaining data to the file
- outputA.close(); // Finishes the file
- outputR.flush(); // Writes the remaining data to the file
- outputR.close(); // Finishes the file
-  outputR_int.flush(); // Writes the remaining data to the file
- outputR_int.close(); // Finishes the file
-  outputG.flush(); // Writes the remaining data to the file
- outputG.close(); // Finishes the file
-  outputB.flush(); // Writes the remaining data to the file
- outputB.close(); // Finishes the file
-  outputT.flush(); // Writes the remaining data to the file
- outputT.close(); // Finishes the file
-   outputX.flush(); // Writes the remaining data to the file
- outputX.close(); // Finishes the file
-   outputY.flush(); // Writes the remaining data to the file
- outputY.close(); // Finishes the file
- 
- 
+println("Radian_Min: "+Radian_Min);
+println("Radian_Max: "+Radian_Max);
+println("Min Color"+Min_Color_R);
+println("Max Color"+Max_Color_R);
+//SUITE PIECE SUIVANTE
  PTS=PTS+1;
 }
 
-save("Data/outputImage.jpg");
+save("Data/outputImage.jpg"); //<>//
 
 exit();
 
