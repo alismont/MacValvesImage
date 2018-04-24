@@ -188,7 +188,7 @@ CentrePieces_CoordX0[36]=1439;CentrePieces_CoordY0[36]=1660;
 CentrePieces_CoordX0[37]=1647;CentrePieces_CoordY0[37]=1667;
 CentrePieces_CoordX0[38]=1851;CentrePieces_CoordY0[38]=1676;
 CentrePieces_CoordX0[39]=2054;CentrePieces_CoordY0[39]=1685;
-CentrePieces_CoordX0[40]=2254;CentrePieces_CoordY0[40]=1695;
+CentrePieces_CoordX0[40]=2254;CentrePieces_CoordY0[40]=1694;
 
 CentrePieces_CoordX0[41]=398;CentrePieces_CoordY0 [41]=1925;
 CentrePieces_CoordX0[42]=600;CentrePieces_CoordY0 [42]=1933;
@@ -288,20 +288,20 @@ if (ColorPixel_r_int[boucle]>=Max_Color_R_int) {
   Max_Color_R_int=ColorPixel_r_int[boucle];
 }
 }
- //<>//
+ //<>// //<>// //<>// //<>// //<>//
  //********************VERIFICATION ET ATTEINDRE LE TROU**********************************
  
-        x= ceil(x0 + Rayon * cos(Radian_Min));
-       y = y0-(ceil( y0 + Rayon * sin(Radian_Min))-y0);
+        x= ceil(x0 + Rayon * cos(Radian_Max));
+       y = y0-(ceil( y0 + Rayon * sin(Radian_Max))-y0);
                               set(x, y, rouge);
                           //ellipse(x, y, 5, 5);
           
 TestInc=0;
 TestDec=0;
 increm=0.0;
-     for (float i=0; i<1; i=i+0.1)  {      
-       x= ceil(x0 + Rayon * cos(Radian_Min+i));
-       y = y0-(ceil( y0 + Rayon * sin(Radian_Min+i))-y0);
+     for (float i=0; i<1.8; i=i+0.1)  {      
+       x= ceil(x0 + Rayon * cos(Radian_Max+i));
+       y = y0-(ceil( y0 + Rayon * sin(Radian_Max+i))-y0);
 color  a = photo.get(x,y);
        r = red(a);
        g = green(a);
@@ -314,9 +314,9 @@ color  a = photo.get(x,y);
      }
      println("TestInc :"+TestInc); 
      
-     for (float i=0; i<1; i=i+0.1)  {      
-       x= ceil(x0 + Rayon * cos(Radian_Min-i));
-       y = y0-(ceil( y0 + Rayon * sin(Radian_Min-i))-y0);
+     for (float i=0; i<1.5; i=i+0.1)  {      
+       x= ceil(x0 + Rayon * cos(Radian_Max-i));
+       y = y0-(ceil( y0 + Rayon * sin(Radian_Max-i))-y0);
 color  a = photo.get(x,y);
        r = red(a);
        g = green(a);
@@ -325,7 +325,7 @@ color  a = photo.get(x,y);
             TestDec=TestDec+r;    
 
                                 set(x, y, rouge);
-                                //ellipse(x, y, 5, 5);         
+                          //ellipse(x, y, 5, 5);         
      }
          println("TestDec: "+TestDec);   
          
@@ -333,28 +333,28 @@ color  a = photo.get(x,y);
   if (TestInc>TestDec){ 
        increm=(0.5*TestDec)/2000;
         println("increm: "+increm); 
-       x= ceil(x0 + Rayon * cos(Radian_Min-increm));
-        y = y0-(ceil( y0 + Rayon * sin(Radian_Min-increm))-y0);
-        Radian_deux=Radian_Min-increm;
+       x= ceil(x0 + Rayon * cos(Radian_Max-increm));
+        y = y0-(ceil( y0 + Rayon * sin(Radian_Max-increm))-y0);
+        Radian_deux=Radian_Max-increm;
           color  a = photo.get(x,y);
            r = red(a);
            g = green(a);
            b = blue(a); 
            
-        //if (r>180){
-        //x= ceil(x0 + Rayon * cos(Radian_Min-increm-0.3));
-        //y = y0-(ceil( y0 + Rayon * sin(Radian_Min-increm-0.3))-y0);
-        //Radian_deux=Radian_deux-0.3;  
-        //   a = photo.get(x,y);
-        //   r = red(a);
-        //   g = green(a);
-        //   b = blue(a);         
-        //          if (r>100){
-        //                      x= ceil(x0 + Rayon * cos(Radian_Min-increm-0.6));
-        //                      y = y0-(ceil( y0 + Rayon * sin(Radian_Min-increm-0.6))-y0);
-        //                                Radian_deux=Radian_deux-0.6;     
-        //          }
-        //}        
+        if (r>180){
+        x= ceil(x0 + Rayon * cos(Radian_Max-increm-0.3));
+        y = y0-(ceil( y0 + Rayon * sin(Radian_Max-increm-0.3))-y0);
+        Radian_deux=Radian_deux-0.3;  
+           a = photo.get(x,y);
+           r = red(a);
+           g = green(a);
+           b = blue(a);         
+                  if (r>100){
+                              x= ceil(x0 + Rayon * cos(Radian_Max-increm-0.6));
+                              y = y0-(ceil( y0 + Rayon * sin(Radian_Max-increm-0.6))-y0);
+                                        Radian_deux=Radian_deux-0.6;     
+                  }
+        }        
             Trou_DroitX[PTS]=x;
             Trou_DroitY[PTS]=y;
                            set(x, y, rouge);
@@ -363,32 +363,32 @@ color  a = photo.get(x,y);
   } else {
        increm=(0.5*TestInc)/2000; //<>//
         println("increm: "+increm); 
-        x= ceil(x0 + Rayon * cos(Radian_Min+increm));
-        y = y0-(ceil( y0 + Rayon * sin(Radian_Min+increm))-y0);
-        Radian_deux=Radian_Min+increm;
+        x= ceil(x0 + Rayon * cos(Radian_Max+increm));
+        y = y0-(ceil( y0 + Rayon * sin(Radian_Max+increm))-y0);
+        Radian_deux=Radian_Max+increm;
           color  a = photo.get(x,y);
            r = red(a);
            g = green(a);
            b = blue(a); 
-        //if (r>180){ //<>//
-        //x= ceil(x0 + Rayon * cos(Radian_Min+increm+0.3)); //<>//
-        //y = y0-(ceil( y0 + Rayon * sin(Radian_Min+increm+0.3))-y0);
-        //        Radian_deux=Radian_deux+0.3;
+        if (r>180){ //<>//
+        x= ceil(x0 + Rayon * cos(Radian_Max+increm+0.3)); //<>//
+        y = y0-(ceil( y0 + Rayon * sin(Radian_Max+increm+0.3))-y0);
+                Radian_deux=Radian_deux+0.3;
                 
-        //   a = photo.get(x,y);
-        //   r = red(a);
-        //   g = green(a);
-        //   b = blue(a);         
-        //          if (r>100){
-        //                      x= ceil(x0 + Rayon * cos(Radian_Min+increm+0.6)); //<>//
-        //                      y = y0-(ceil( y0 + Rayon * sin(Radian_Min+increm+0.6))-y0);
-        //                                Radian_deux=Radian_deux+0.6;     
-        //          } //<>//
-        //}      
+           a = photo.get(x,y);
+           r = red(a);
+           g = green(a);
+           b = blue(a);         
+                  if (r>100){
+                              x= ceil(x0 + Rayon * cos(Radian_Max+increm+0.6)); //<>//
+                              y = y0-(ceil( y0 + Rayon * sin(Radian_Max+increm+0.6))-y0);
+                                        Radian_deux=Radian_deux+0.6;     
+                  } //<>//
+        }      
             Trou_DroitX[PTS]=x;
             Trou_DroitY[PTS]=y;
                            set(x, y, rouge);
-                         ellipse(x, y, 5, 5); 
+                          ellipse(x, y, 5, 5); 
                             Radian_deux=Radian_deux-3.14; 
   }
 
