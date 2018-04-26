@@ -1,4 +1,6 @@
+import java.nio.*;
 
+//******************
 PImage photo;
 
 boolean fin=true;
@@ -124,38 +126,46 @@ int boucle=0;
      color jaune = color(255, 204, 0);
      color rouge = color(240, 28, 28);
      
-     int PTS = 1;
+     int PTS =1;
+     
+  
+     
+     
 //---------------SETUP-----------------------------
 void setup() {
-    size(2592, 3872);
+    size(3872, 2592);
 
  //Etude Date:06-04-2018
- 
- photo = loadImage("Lot_pieces.jpg");
+ //String path = dataPath(sourceFile);
+ //println(path);
+ //println(dataPath(""));
+photo = loadImage("DSC_1228.jpg");//
+//photo = loadImage("Ce PC/S1/Stockage amovible/DCIM/102NC1S1/DSC_1228.jpg");
 
 }
 
 //----------------DRAW----------------------------
 void draw() {
+ tint(204, 153, 0);
       image(photo, 0, 0);
      // filter(DILATE);
       //filter(INVERT);
-      filter(GRAY);
+      //filter(GRAY);
 
 
 
 // Boucle des 50 pièces A FAIRE.....
 // COORDs CENTRE
- CentrePieces_CoordX0[1]=456;CentrePieces_CoordY0[1]=727;
- CentrePieces_CoordX0[2]=657;CentrePieces_CoordY0[2]=730;
- CentrePieces_CoordX0[3]=860;CentrePieces_CoordY0[3]=734;
- CentrePieces_CoordX0[4]=1064;CentrePieces_CoordY0[4]=741;
- CentrePieces_CoordX0[5]=1270;CentrePieces_CoordY0[5]=749;
- CentrePieces_CoordX0[6]=1474;CentrePieces_CoordY0[6]=758;
- CentrePieces_CoordX0[7]=1676;CentrePieces_CoordY0[7]=766;
- CentrePieces_CoordX0[8]=1878;CentrePieces_CoordY0[8]=778;
- CentrePieces_CoordX0[9]=2080;CentrePieces_CoordY0[9]=789;
- CentrePieces_CoordX0[10]=2279;CentrePieces_CoordY0[10]=803;
+ CentrePieces_CoordX0[1]=1039;CentrePieces_CoordY0[1]=374;
+ CentrePieces_CoordX0[2]=1342;CentrePieces_CoordY0[2]=379;
+ CentrePieces_CoordX0[3]=1642;CentrePieces_CoordY0[3]=387;
+ CentrePieces_CoordX0[4]=1945;CentrePieces_CoordY0[4]=397;
+ CentrePieces_CoordX0[5]=2250;CentrePieces_CoordY0[5]=411;
+ CentrePieces_CoordX0[6]=2551;CentrePieces_CoordY0[6]=425;
+ CentrePieces_CoordX0[7]=2848;CentrePieces_CoordY0[7]=444;
+ CentrePieces_CoordX0[8]=3143;CentrePieces_CoordY0[8]=458;
+ CentrePieces_CoordX0[9]=1028;CentrePieces_CoordY0[9]=576;
+ CentrePieces_CoordX0[10]=1329;CentrePieces_CoordY0[10]=580;
  
 CentrePieces_CoordX0[11]=440;CentrePieces_CoordY0[11]=1023;
 CentrePieces_CoordX0[12]=644;CentrePieces_CoordY0[12]=1027;
@@ -231,10 +241,11 @@ CentrePieces_CoordX0[75]=1188;CentrePieces_CoordY0[75]=2872;
 CentrePieces_CoordX0[76]=1390;CentrePieces_CoordY0[76]=2879;
 CentrePieces_CoordX0[77]=1596;CentrePieces_CoordY0[77]=2882;
 CentrePieces_CoordX0[78]=1799;CentrePieces_CoordY0[78]=2891;
-CentrePieces_CoordX0[79]=2000;CentrePieces_CoordY0[79]=2895;
-CentrePieces_CoordX0[80]=2197;CentrePieces_CoordY0[80]=2889;
+CentrePieces_CoordX0[79]=2773;CentrePieces_CoordY0[79]=2270;
+CentrePieces_CoordX0[80]=3067;CentrePieces_CoordY0[80]=2279;
 
-while (PTS < 81) {
+// boucle pour les pieces
+while (PTS < 7) {
   //println("PTS"+PTS);
   
 //INIT
@@ -294,7 +305,7 @@ if (ColorPixel_r_int[boucle]>=Max_Color_R_int) {
         x= ceil(x0 + Rayon * cos(Radian_Min));
        y = y0-(ceil( y0 + Rayon * sin(Radian_Min))-y0);
                               set(x, y, rouge);
-                          //ellipse(x, y, 5, 5);
+                         // ellipse(x, y, 5, 5);
           
 TestInc=0;
 TestDec=0;
@@ -325,13 +336,13 @@ color  a = photo.get(x,y);
             TestDec=TestDec+r;    
 
                                 set(x, y, rouge);
-                                //ellipse(x, y, 5, 5);         
+                               // ellipse(x, y, 5, 5);         
      }
          println("TestDec: "+TestDec);   
          
  //*******************IMPRESSION DES POINTS*****************                                                                                    
   if (TestInc>TestDec){ 
-       increm=(0.5*TestDec)/2000;
+       increm=((abs(TestInc-TestDec)*.5)/1000);
         println("increm: "+increm); 
        x= ceil(x0 + Rayon * cos(Radian_Min-increm));
         y = y0-(ceil( y0 + Rayon * sin(Radian_Min-increm))-y0);
@@ -341,28 +352,15 @@ color  a = photo.get(x,y);
            g = green(a);
            b = blue(a); 
            
-        //if (r>180){
-        //x= ceil(x0 + Rayon * cos(Radian_Min-increm-0.3));
-        //y = y0-(ceil( y0 + Rayon * sin(Radian_Min-increm-0.3))-y0);
-        //Radian_deux=Radian_deux-0.3;  
-        //   a = photo.get(x,y);
-        //   r = red(a);
-        //   g = green(a);
-        //   b = blue(a);         
-        //          if (r>100){
-        //                      x= ceil(x0 + Rayon * cos(Radian_Min-increm-0.6));
-        //                      y = y0-(ceil( y0 + Rayon * sin(Radian_Min-increm-0.6))-y0);
-        //                                Radian_deux=Radian_deux-0.6;     
-        //          }
-        //}        
+      
             Trou_DroitX[PTS]=x;
             Trou_DroitY[PTS]=y;
                            set(x, y, rouge);
                            ellipse(x, y, 5, 5); 
                            Radian_deux=Radian_deux+3.14; 
   } else {
-       increm=(0.5*TestInc)/2000; //<>//
-        println("increm: "+increm); 
+       increm=((abs(TestInc-TestDec)*.5)/1000);
+        println("increm: "+increm);  //<>//
         x= ceil(x0 + Rayon * cos(Radian_Min+increm));
         y = y0-(ceil( y0 + Rayon * sin(Radian_Min+increm))-y0);
         Radian_deux=Radian_Min+increm;
@@ -370,21 +368,7 @@ color  a = photo.get(x,y);
            r = red(a);
            g = green(a);
            b = blue(a); 
-        //if (r>180){ //<>//
-        //x= ceil(x0 + Rayon * cos(Radian_Min+increm+0.3)); //<>//
-        //y = y0-(ceil( y0 + Rayon * sin(Radian_Min+increm+0.3))-y0);
-        //        Radian_deux=Radian_deux+0.3;
-                
-        //   a = photo.get(x,y);
-        //   r = red(a);
-        //   g = green(a);
-        //   b = blue(a);         
-        //          if (r>100){
-        //                      x= ceil(x0 + Rayon * cos(Radian_Min+increm+0.6)); //<>//
-        //                      y = y0-(ceil( y0 + Rayon * sin(Radian_Min+increm+0.6))-y0);
-        //                                Radian_deux=Radian_deux+0.6;     
-        //          } //<>//
-        //}      
+            //<>// //<>// //<>// //<>//
             Trou_DroitX[PTS]=x;
             Trou_DroitY[PTS]=y;
                            set(x, y, rouge);
@@ -400,7 +384,7 @@ color  a = photo.get(x,y);
           Trou_GaucheX[PTS]=x;
           Trou_GaucheY[PTS]=y;
                              set(x, y, rouge);
-                           ellipse(x, y, 5, 5); 
+                           //ellipse(x, y, 5, 5); 
 
                          
 //***************FIN****************
@@ -418,3 +402,5 @@ save("Data/outputImage.jpg"); //<>//
 exit();
 
 }
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
