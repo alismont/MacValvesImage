@@ -1,8 +1,11 @@
-import java.nio.*;
+import java.io.*;
+//import processing.io.*;
+//import arduino_like;
+import processing.serial.*;
 
-//******************
+//***************************************************************************************************
 PImage photo;
-
+String inString;
 boolean fin=true;
 boolean flag=false;
 int i;
@@ -12,28 +15,28 @@ int IndexRelatif=0;
 int memoBoucle;
 int num = 0;
 int numm = 0;
-int[] cx = new int[10000];
-int[] cy = new int[10000];
+//int[] cx = new int[10000];
+//int[] cy = new int[10000];
 
 // Points de soudures
 //HG haut gauche; HD haut droit ; BG bas gauche ; BD bas droit
-int[] HGx = new int[100];
-int[] HGy = new int[100];
-int[] HDx = new int[100];
-int[] HDy = new int[100];
-int[] BGx = new int[100];
-int[] BGy = new int[100];
-int[] BDx = new int[100];
-int[] BDy = new int[100];
+//int[] HGx = new int[100];
+//int[] HGy = new int[100];
+//int[] HDx = new int[100];
+//int[] HDy = new int[100];
+//int[] BGx = new int[100];
+//int[] BGy = new int[100];
+//int[] BDx = new int[100];
+//int[] BDy = new int[100];
 float val=0.5;
-int[] HGxD = new int[100];
-int[] HGyD = new int[100];
-int[] HDxD = new int[100];
-int[] HDyD = new int[100];
-int[] BGxD = new int[100];
-int[] BGyD = new int[100];
-int[] BDxD = new int[100];
-int[] BDyD = new int[100];
+//int[] HGxD = new int[100];
+//int[] HGyD = new int[100];
+//int[] HDxD = new int[100];
+//int[] HDyD = new int[100];
+//int[] BGxD = new int[100];
+//int[] BGyD = new int[100];
+//int[] BDxD = new int[100];
+//int[] BDyD = new int[100];
 
 int PasAPas = 1;
 int PasAPasD = 1;
@@ -49,21 +52,21 @@ float rMoy,gMoy,bMoy;
 float MoyTot;
 float increm=0.0;
 int NbrPoints;
-
+String[] cmd={"gphoto2 --capture-image"};
 //Etude Date:06-04-2018
 //  Tableau des coordonnées polaire de chaque pièce, valeurs constante
 int[] CentrePieces_CoordX0 = new int[100];
 int[] CentrePieces_CoordY0 = new int[100];
-int[] CerclePieces_CoordX = new int[30000];
-int[] CerclePieces_CoordY = new int[30000];
-float[] ColorPixel_r = new float[30000];
-float[] ColorPixel_r_int = new float[30000];
-float[] ColorPixel_r_Trou = new float[30000];
-float[] ColorPixel_g = new float[30000];
-float[] ColorPixel_b = new float[30000];
-float[] ColorPixel_a = new float[30000];
-float[] Radian_t = new float[30000];
-float[] Radian_Max_TBL = new float[30000];
+int[] CerclePieces_CoordX = new int[10000];
+int[] CerclePieces_CoordY = new int[10000];
+float[] ColorPixel_r = new float[10000];
+float[] ColorPixel_r_int = new float[10000];
+float[] ColorPixel_r_Trou = new float[10000];
+float[] ColorPixel_g = new float[10000];
+float[] ColorPixel_b = new float[10000];
+float[] ColorPixel_a = new float[10000];
+float[] Radian_t = new float[10000];
+float[] Radian_Max_TBL = new float[10000];
 float Radian_t_ok=0;
 float Radian_deux=0;
 float Trou_Gauche=0;
@@ -76,11 +79,11 @@ float PointQuatre=0;
 float PointCinq=0;
 float PointSix=0;
 float PointSept=0;
-int[] Trou_GaucheX = new int[100];
+int[] Trou_GaucheX= new int[100];
 int[] Trou_GaucheY = new int[100];
 int[] Trou_DroitX = new int[100];
 int[] Trou_DroitY = new int[100];
-int Rayon=33;// rayon en nombre de pixels
+int Rayon=26;// rayon en nombre de pixels
 int x0,y0,x,y;
 float Moyenne_R=0;
 float Moyenne_G=0;
@@ -128,38 +131,332 @@ int boucle=0;
      
      int PTS =1;
      
-  
-     
-     
-//---------------SETUP-----------------------------
+  boolean Calcul_Points_Colle_OK;   
+  boolean Home_OK=false;
+
+   Serial myPort;
+     int octetReception;
+     char caracter;
+     String chainerec;
+int Sequence=0;
+int lf=10;
+int CptPieces;
+String CoordX, CoordY ;
+
+
+
+
+
+//---------------SETUP----------------------------------------------------------------------------------------------
 void setup() {
     size(3872, 2592);
 
- //Etude Date:06-04-2018
- //String path = dataPath(sourceFile);
- //println(path);
- //println(dataPath(""));
-photo = loadImage("DSC_1228.jpg");//
+printArray(Serial.list());
+
 //photo = loadImage("Ce PC/S1/Stockage amovible/DCIM/102NC1S1/DSC_1228.jpg");
+//exec("C:/Aurel/mACVALVES/Asbuilt/Coord_Points_Colle/data/test.bat"); 
+myPort = new Serial(this,Serial.list()[2],115200);
+myPort.bufferUntil(lf);
+}
+
+//----------------DRAW-----------------------------------------------------------------------------------------------
+void draw() {
+   // LECTURE BOUTON START SI MACHINE INITIALISEE
+while (myPort.available()>0 ) {
+  octetReception = myPort.read();
+
+  if (octetReception=='='){
+    // println(chainerec);
+    if (chainerec.substring(0, 5).equals("START")==true){
+      if (Sequence==0) Sequence=1;
+      
+    }
+    if (chainerec.substring(0, 3).equals("XOK")==true){
+      if (Sequence==31) Sequence=4;
+    }  
+    if (chainerec.substring(0, 3).equals("YOK")==true){
+      if (Sequence==41) Sequence=5;
+    }
+     if (chainerec.substring(0, 3).equals("XOK")==true){
+      if (Sequence==81) Sequence=9;
+    }  
+    if (chainerec.substring(0, 3).equals("YOK")==true){
+      if (Sequence==91) Sequence=10;
+    }   
+      if (chainerec.substring(0, 3).equals("XOK")==true){
+      if (Sequence==1031) Sequence=104;
+    }  
+    if (chainerec.substring(0, 3).equals("YOK")==true){
+      if (Sequence==1041) Sequence=0;
+    }      
+    
+      println(chainerec);
+      chainerec="";
+  } else {
+    caracter=char(octetReception);
+    chainerec=chainerec+caracter;
+    } 
+    } 
+
+
+switch(Sequence) {
+    case 0: 
+    
+    break;
+	
+    case 1: //Prise photo
+     // Runtime.getRuntime().exec(cmd);
+    //launch("Test.bat");
+    //println("exec......");
+    
+ Process p = exec("gphoto2", "--capture-image-and-download"); 
+  try {
+  int result = p.waitFor();
+  println(result);
+    }catch(InterruptedException e)
+  {e.printStackTrace();
+    } 
+ //cp /home/pi/processing-3.3.7/*.JPG /home/pi/Mac/Coord_Points_Colle/data/Lot_piece.jpg
+ //Process pp = exec("cmd.exe", "cp /home/pi/processing-3.3.7/*.JPG /home/pi/Mac/Coord_Points_Colle/data/Lot_piece.jpg"); 
+ //Process pp = Runtime.getRuntime().exec("cp /home/pi/processing-3.3.7/*.JPG /home/pi/Mac/Coord_Points_Colle/data/Lot_piece.jpg");
+//public Process exec("cp /home/pi/processing-3.3.7/*.JPG /home/pi/Mac/Coord_Points_Colle/data/Lot_piece.jpg")
+//ntime.exec("rm /home/pi/processing-3.3.7/*.JPG");
+ p = exec("lxterminal", "cp /home/pi/processing-3.3.7/*.JPG /home/pi/Mac/Coord_Points_Colle/data/Lot_piece.jpg");  
+  try {
+  int result = p.waitFor();
+  println(result);
+    }catch(InterruptedException e)
+  {e.printStackTrace();
+    } 
+ //rm /home/pi/processing-3.3.7/*.JPG 
+ //Runtime.getRuntime().exec("rm /home/pi/processing-3.3.7/*.JPG");
+ p = exec("lxterminal", "rm /home/pi/processing-3.3.7/*.JPG"); 
+   try {
+  int result = p.waitFor();
+  println(result);
+    }catch(InterruptedException e)
+  {e.printStackTrace();
+    } 
+ 
+
+          Sequence=11;
+    break;	
+    	  case 11: //Transfert photo
+                  Sequence=12;
+        break;
+        case 12: //Traitement image
+    Calcul_Points_Colle_OK=false;
+    Traitement_Image();
+                  Sequence=3;
+                  CptPieces=1;
+        break;  
+	case 3: //Positionnement en X gauche
+	         // envoie coordonnée X
+CoordonneeG(); //<>//
+	         myPort.write(CoordX);  
+             Sequence=31;
+ print("CoordX:");
+ println(CoordX);
+    break;	
+    		case 31: //Positionnement en X suite
+    			// attente en position X
+
+    		break;
+	
+	case 4: //Positionnement en Y
+	         // envoie coordonnée Y
+	         myPort.write(CoordY); 
+             Sequence=41 ;
+ print("CoordY:");
+ println(CoordY);
+    break;
+      		case 41: //Positionnement en Y
+      			// attente en position Y
+
+      		break;
+	
+	case 5: //Positionnement en Z descendre
+             Sequence=6;
+	break;
+	
+	case 6: //Collage
+			Sequence=7;
+    break;
+	
+	case 7: //Positionnement en Z monter
+			Sequence=8;
+	break;
+
+
+  case 8: //Positionnement en X droite
+           // envoie coordonnée X
+CoordonneeD();
+           myPort.write(CoordX);  
+             Sequence=81;
+ print("CoordX:");
+ println(CoordX);
+    break;  
+        case 81: //Positionnement en X suite
+          // attente en position X
+
+        break;
+  
+  case 9: //Positionnement en Y
+           // envoie coordonnée Y
+           myPort.write(CoordY); 
+             Sequence=91;
+ print("CoordY:");
+ println(CoordY);
+    break;
+          case 91: //Positionnement en Y
+            // attente en position Y
+
+          break;
+   
+  case 10: //Positionnement en Z descendre
+             Sequence=100;
+  break;
+  
+  case 100: //Collage
+      Sequence=101;
+    break;
+  
+  case 101: //Positionnement en Z monter
+      Sequence=102;
+  break;
+          
+  case 102: //Test nombre de pieces
+  CptPieces=CptPieces+1;
+  Sequence=3;
+     if (CptPieces>4) Sequence=103;
+     
+  break;
+  
+  
+    case 103: //Test nombre de pieces
+      CptPieces=0;
+      CoordX="X0000....=";
+      myPort.write(CoordX); 
+      Sequence=1031;
+     case 1031: //Test nombre de pieces
+        //println();
+  case 104:
+    CoordY="Y0000....=";
+             myPort.write(CoordY); 
+      Sequence=1041;     
+  break;
+       case 1041: //Test nombre de pieces
+        //println();
+}
+
+ println(Sequence); 
+
+
+// exit();
 
 }
 
-//----------------DRAW----------------------------
-void draw() {
- tint(204, 153, 0);
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+//++++++++++++++++++++++++++++++++
+void CoordonneeG() {
+float xptspixel=0.8;
+  if (Trou_GaucheX[CptPieces]*xptspixel<10) {
+    CoordX="X000"+str(int(Trou_GaucheX[CptPieces]*xptspixel))+"....=";
+  }
+  
+  if (Trou_GaucheX[CptPieces]*xptspixel>10 & Trou_GaucheX[CptPieces]*xptspixel<100) {
+    CoordX="X00"+str(int(Trou_GaucheX[CptPieces]*xptspixel))+"....=";
+  }
+  
+  if (Trou_GaucheX[CptPieces]*xptspixel>100 & Trou_GaucheX [CptPieces]*xptspixel<1000) {
+    CoordX="X0"+str(int(Trou_GaucheX[CptPieces]*xptspixel))+"....=";
+  }
+  
+   if (Trou_GaucheX[CptPieces]*xptspixel>1000) {
+    CoordX="X"+str(int(Trou_GaucheX[CptPieces]*xptspixel))+"....=";
+  }
+  
+   float yptspixel=0.15; 
+  if (Trou_GaucheY[CptPieces]*yptspixel<10) {
+  CoordY="Y000"+str(int(Trou_GaucheY[CptPieces]*yptspixel))+"....=";
+  }
+  if (Trou_GaucheY[CptPieces]*yptspixel>10 & Trou_GaucheY [CptPieces]*yptspixel<100){
+  CoordY="Y00"+str(int(Trou_GaucheY[CptPieces]*yptspixel))+"....=";
+  }
+  if (Trou_GaucheY[CptPieces]*yptspixel>100 & Trou_GaucheY [CptPieces]*yptspixel<1000){
+  CoordY="Y0"+str(int(Trou_GaucheY[CptPieces]*yptspixel))+"....=";
+   }       
+     if (Trou_GaucheY[CptPieces]*yptspixel>1000) {
+    CoordY="Y"+str(int(Trou_GaucheY[CptPieces]*yptspixel))+"....=";
+  }    
+  }
+  
+  
+//++++++++++++++++++++++++++++++++
+void CoordonneeD() {
+float xptspixel=0.8;
+  if (Trou_DroitX[CptPieces]*xptspixel<10) {
+    CoordX="X000"+str(int(Trou_DroitX[CptPieces]*xptspixel))+"....=";
+  }
+  
+  if (Trou_DroitX[CptPieces]*xptspixel>10 & Trou_GaucheX[CptPieces]*xptspixel<100) {
+    CoordX="X00"+str(int(Trou_DroitX[CptPieces]*xptspixel))+"....=";
+  }
+  
+  if (Trou_DroitX[CptPieces]*xptspixel>100 & Trou_GaucheX [CptPieces]*xptspixel<1000) {
+    CoordX="X0"+str(int(Trou_DroitX[CptPieces]*xptspixel))+"....=";
+  }
+  
+   if (Trou_DroitX[CptPieces]*xptspixel>1000) {
+    CoordX="X"+str(int(Trou_DroitX[CptPieces]*xptspixel))+"....=";
+  }
+  
+   float yptspixel=0.15; 
+  if (Trou_DroitX[CptPieces]*yptspixel<10) {
+  CoordY="Y000"+str(int(Trou_DroitX[CptPieces]*yptspixel))+"....=";
+  }
+  if (Trou_DroitX[CptPieces]*yptspixel>10 & Trou_GaucheY [CptPieces]*yptspixel<100){
+  CoordY="Y00"+str(int(Trou_DroitX[CptPieces]*yptspixel))+"....=";
+  }
+  if (Trou_DroitX[CptPieces]*yptspixel>100 & Trou_GaucheY [CptPieces]*yptspixel<1000){
+  CoordY="Y0"+str(int(Trou_DroitX[CptPieces]*yptspixel))+"....=";
+   }       
+     if (Trou_DroitX[CptPieces]*yptspixel>1000) {
+    CoordY="Y"+str(int(Trou_DroitX[CptPieces]*yptspixel))+"....=";
+  }    
+  }
+ 
+//++++++++++++++++++++++++++++++++
+
+void SerialEvent(Serial p) {
+ // inString=p.readString();
+ // println(inString);
+}
+
+//++++++++++++++++++++++++++++++++
+void Collage() {
+  //APPEL POSITIONNEMENT DES AXES
+  //SERIAL.WRITE VERS MEGA POUR ENVOI DES COORDONNEES
+}
+
+
+//++++++++++++++++++++++++++++++++
+void Traitement_Image(){ 
+  photo = loadImage("Lot_piece.jpg");
+  tint(204, 153, 0);
       image(photo, 0, 0);
      // filter(DILATE);
       //filter(INVERT);
       //filter(GRAY);
 
 
-
-// Boucle des 50 pièces A FAIRE.....
 // COORDs CENTRE
- CentrePieces_CoordX0[1]=1039;CentrePieces_CoordY0[1]=374;
- CentrePieces_CoordX0[2]=1342;CentrePieces_CoordY0[2]=379;
- CentrePieces_CoordX0[3]=1642;CentrePieces_CoordY0[3]=387;
- CentrePieces_CoordX0[4]=1945;CentrePieces_CoordY0[4]=397;
+ CentrePieces_CoordX0[1]=1083;CentrePieces_CoordY0[1]=326;
+ CentrePieces_CoordX0[2]=1238;CentrePieces_CoordY0[2]=326;
+ CentrePieces_CoordX0[3]=1395;CentrePieces_CoordY0[3]=327;
+ CentrePieces_CoordX0[4]=1552;CentrePieces_CoordY0[4]=327;
  CentrePieces_CoordX0[5]=2250;CentrePieces_CoordY0[5]=411;
  CentrePieces_CoordX0[6]=2551;CentrePieces_CoordY0[6]=425;
  CentrePieces_CoordX0[7]=2848;CentrePieces_CoordY0[7]=444;
@@ -245,8 +542,8 @@ CentrePieces_CoordX0[79]=2773;CentrePieces_CoordY0[79]=2270;
 CentrePieces_CoordX0[80]=3067;CentrePieces_CoordY0[80]=2279;
 
 // boucle pour les pieces
-while (PTS < 7) {
-  //println("PTS"+PTS);
+while (PTS < 5) {
+  println("PTS"+PTS);
   
 //INIT
 numm=0;
@@ -299,7 +596,7 @@ if (ColorPixel_r_int[boucle]>=Max_Color_R_int) {
   Max_Color_R_int=ColorPixel_r_int[boucle];
 }
 }
- //<>//
+
  //********************VERIFICATION ET ATTEINDRE LE TROU**********************************
  
         x= ceil(x0 + Rayon * cos(Radian_Min));
@@ -360,7 +657,7 @@ color  a = photo.get(x,y);
                            Radian_deux=Radian_deux+3.14; 
   } else {
        increm=((abs(TestInc-TestDec)*.5)/1000);
-        println("increm: "+increm);  //<>//
+        println("increm: "+increm); 
         x= ceil(x0 + Rayon * cos(Radian_Min+increm));
         y = y0-(ceil( y0 + Rayon * sin(Radian_Min+increm))-y0);
         Radian_deux=Radian_Min+increm;
@@ -368,7 +665,7 @@ color  a = photo.get(x,y);
            r = red(a);
            g = green(a);
            b = blue(a); 
-            //<>// //<>// //<>// //<>//
+            //<>// //<>// //<>//
             Trou_DroitX[PTS]=x;
             Trou_DroitY[PTS]=y;
                            set(x, y, rouge);
@@ -384,7 +681,7 @@ color  a = photo.get(x,y);
           Trou_GaucheX[PTS]=x;
           Trou_GaucheY[PTS]=y;
                              set(x, y, rouge);
-                           //ellipse(x, y, 5, 5); 
+                           ellipse(x, y, 5, 5); 
 
                          
 //***************FIN****************
@@ -397,10 +694,6 @@ println("Max Color"+Max_Color_R);
  PTS=PTS+1;
 }
 
-save("Data/outputImage.jpg"); //<>//
-
-exit();
-
+save("Data/outputImage.jpg");
+Calcul_Points_Colle_OK=false;
 }
-
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

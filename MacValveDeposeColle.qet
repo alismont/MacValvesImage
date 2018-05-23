@@ -1,0 +1,588 @@
+<project title="" version="0.60" folioSheetQuantity="0">
+    <properties/>
+    <newdiagrams>
+        <border cols="17" rowsize="80" rows="8" displaycols="true" displayrows="true" colsize="60"/>
+        <inset author="" auto_page_num="" date="null" title="" indexrev="" version="" filename="" folio="%id/%total" machine="" locmach="" displayAt="bottom"/>
+        <conductors type="multi" condsize="1" num="_" numsize="7" formula="" tension-protocol="" function="" displaytext="1" horizrotatetext="0" vertirotatetext="270" onetextperfolio="0"/>
+        <report label="%f-%l%c"/>
+        <xrefs>
+            <xref master_label="%f-%l%c" type="coil" snapto="label" offset="0" delayprefix="" displayhas="cross" powerprefix="" switchprefix="" slave_label="(%f-%l%c)" showpowerctc="false"/>
+            <xref master_label="%f-%l%c" type="commutator" snapto="label" offset="0" delayprefix="" displayhas="cross" powerprefix="" switchprefix="" slave_label="(%f-%l%c)" showpowerctc="false"/>
+            <xref master_label="%f-%l%c" type="protection" snapto="label" offset="0" delayprefix="" displayhas="cross" powerprefix="" switchprefix="" slave_label="(%f-%l%c)" showpowerctc="false"/>
+        </xrefs>
+        <conductors_autonums current_autonum="" freeze_new_conductors="false"/>
+        <folio_autonums/>
+        <element_autonums current_autonum="" freeze_new_elements="false"/>
+    </newdiagrams>
+    <diagram author="LISMONT" auto_page_num="Créer un Folio Numérotation Auto" order="1" displaycols="true" indexrev="" locmach="" rowsize="80" date="null" title="Mac_Collage" cols="17" height="660" displayAt="bottom" rows="8" filename="" colsize="60" machine="" freezeNewElement="false" displayrows="true" freezeNewConductor="false" version="0.60" folio="%id/%total">
+        <defaultconductor type="multi" condsize="1" num="_" numsize="7" formula="" tension-protocol="" function="" displaytext="1" horizrotatetext="0" vertirotatetext="270" onetextperfolio="0"/>
+        <elements>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="800" y="260" freezeLabel="false" prefix="" orientation="0" uuid="{39f65609-9309-4d63-99ac-d462518731df}">
+                <terminals>
+                    <terminal name="_" x="36" id="0" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="FC HOME" x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1">FC HOME</elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1"></elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="800" y="340" freezeLabel="false" prefix="" orientation="0" uuid="{e35540a6-ffa1-4df0-9dde-8beb2d9309e4}">
+                <terminals>
+                    <terminal name="_" x="36" id="1" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="" x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1"></elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1"></elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="800" y="340" freezeLabel="false" prefix="" orientation="0" uuid="{e24b7231-d5f8-423f-bc7c-7184fbf2b1db}">
+                <terminals>
+                    <terminal name="_" x="36" id="2" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="FC LIMIT + " x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1">FC LIMIT + </elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1"></elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="800" y="260" freezeLabel="false" prefix="" orientation="0" uuid="{90571e40-5ac7-40d2-a0cf-abcbcf57a141}">
+                <terminals>
+                    <terminal name="_" x="36" id="3" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="FC HOME" x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1">FC HOME</elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1"></elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="460" y="180" freezeLabel="false" prefix="" orientation="0" uuid="{d63ca198-f5d7-4ac1-b462-5d479e5c9bcc}">
+                <terminals>
+                    <terminal name="_" x="36" id="4" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="BP START" x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1">_</elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="800" y="180" freezeLabel="false" prefix="" orientation="0" uuid="{83dfd2bc-7e91-455b-b624-6d4019f47be2}">
+                <terminals>
+                    <terminal name="_" x="36" id="5" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="BP HOMING" x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1">BP HOMING</elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1"></elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/10_electric/11_singlepole/140_connectors&amp;plugs/prise_multipolaire_2.elmt" x="710" y="100" freezeLabel="false" prefix="X" orientation="0" uuid="{8c2760a6-3c25-4a4c-b39f-ea71b2df5020}">
+                <terminals>
+                    <terminal name="_" x="0" id="6" y="4" orientation="0" number="_" nameHidden="0"/>
+                    <terminal name="_" x="0" id="7" y="26" orientation="2" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="6" x="1" y="20.5"/>
+                    <input text="12V" x="7" y="14.5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1">12V</elementInformation>
+                    <elementInformation name="other" show="1">6</elementInformation>
+                    <elementInformation name="formula" show="1">12V</elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="800" y="420" freezeLabel="false" prefix="" orientation="0" uuid="{23d043b1-8612-4882-b490-d4699056851d}">
+                <terminals>
+                    <terminal name="_" x="36" id="8" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="FC LIMIT - " x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1">FC LIMIT - </elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1"></elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/10_electric/11_singlepole/140_connectors&amp;plugs/prise_multipolaire_2.elmt" x="140" y="340" freezeLabel="false" prefix="X" orientation="0" uuid="{f19739ec-4758-4a70-beb7-00ec72fd1f9f}">
+                <terminals>
+                    <terminal name="_" x="0" id="9" y="4" orientation="0" number="_" nameHidden="0"/>
+                    <terminal name="_" x="0" id="10" y="26" orientation="2" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="6" x="1" y="20.5"/>
+                    <input usery="10" userx="10" text="?" x="7" y="14.5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1">?</elementInformation>
+                    <elementInformation name="other" show="1">6</elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1">?</elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/20_logic/10_functions/entree.elmt" x="800" y="420" freezeLabel="false" prefix="" orientation="0" uuid="{a2d91436-5d3d-4277-ae00-d9323f42c845}">
+                <terminals>
+                    <terminal name="_" x="36" id="11" y="0" orientation="1" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="" x="25" y="-10"/>
+                    <input text="" x="-25" y="50"/>
+                    <input text="I" x="-2" y="5"/>
+                    <input text="I" x="-2" y="5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1"></elementInformation>
+                    <elementInformation name="none" show="1"></elementInformation>
+                    <elementInformation name="comment" show="1"></elementInformation>
+                    <elementInformation name="formula" show="1"></elementInformation>
+                    <elementInformation name="location" show="1"></elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/10_electric/11_singlepole/140_connectors&amp;plugs/prise_multipolaire_2.elmt" x="380" y="100" freezeLabel="false" prefix="X" orientation="0" uuid="{ad456aca-54d8-4475-a062-09166f1589f3}">
+                <terminals>
+                    <terminal name="_" x="0" id="12" y="4" orientation="0" number="_" nameHidden="0"/>
+                    <terminal name="_" x="0" id="13" y="26" orientation="2" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="6" x="1" y="20.5"/>
+                    <input usery="10" userx="10" text="5V" x="7" y="14.5"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1">5V</elementInformation>
+                    <elementInformation name="other" show="1">6</elementInformation>
+                    <elementInformation name="formula" show="1">5V</elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/10_electric/11_singlepole/330_transformers&amp;power_supplies/10_transformers/transformator_1f_1.elmt" x="110" y="160" freezeLabel="false" prefix="T" orientation="0" uuid="{7dec5e37-18e8-4e42-aaba-4a0e722e88ff}">
+                <terminals>
+                    <terminal name="_" x="0" id="14" y="-36" orientation="0" number="_" nameHidden="0"/>
+                    <terminal name="_" x="0" id="15" y="36" orientation="2" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="T" x="17" y="0"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1">T</elementInformation>
+                    <elementInformation name="formula" show="1">%prefix</elementInformation>
+                </elementInformations>
+            </element>
+            <element type="embed://import/10_electric/11_singlepole/200_fuses&amp;protective_gears/11_circuit_breakers/disjonct-m.elmt" x="110" y="90" freezeLabel="false" prefix="F" orientation="0" uuid="{e8d90a72-c8a0-4965-a6a0-017be4809217}">
+                <terminals>
+                    <terminal name="_" x="0" id="16" y="16" orientation="2" number="_" nameHidden="0"/>
+                    <terminal name="_" x="0" id="17" y="-26" orientation="0" number="_" nameHidden="0"/>
+                </terminals>
+                <inputs>
+                    <input text="F" x="6" y="-6.3334"/>
+                </inputs>
+                <elementInformations>
+                    <elementInformation name="label" show="1">F</elementInformation>
+                    <elementInformation name="formula" show="1">%prefix</elementInformation>
+                </elementInformations>
+            </element>
+        </elements>
+        <conductors>
+            <conductor terminal1="14" type="multi" x="0" y="10" condsize="1" freezeLabel="false" num="_" numsize="7" terminal2="16" formula="" tension-protocol="" function="" displaytext="1" horizrotatetext="0" vertirotatetext="270" onetextperfolio="0">
+                <sequentialNumbers/>
+            </conductor>
+        </conductors>
+        <inputs>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>PCDUINO&lt;/p>&lt;/body>&lt;/html>" x="350" y="140"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>USB&lt;/p>&lt;/body>&lt;/html>" x="150" y="370"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>DRIVERs&lt;/p>&lt;/body>&lt;/html>" x="700" y="310"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>PHOTO&lt;/p>&lt;/body>&lt;/html>" x="140" y="480"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>USB&lt;/p>&lt;/body>&lt;/html>" x="360" y="240" rotation="90"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Rx/Tx&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>or I2C&lt;/p>&lt;/body>&lt;/html>" x="380" y="230"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>GESTION PAR FICHIER BATCH&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>EXEC() appel dans processing&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>pour déclencher la photo&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>&amp;amp; transferer le fichier&lt;/span>&lt;/p>&lt;/body>&lt;/html>" x="170" y="270"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Rx/Tx&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Serial3  or I2C&lt;/p>&lt;/body>&lt;/html>" x="640" y="230"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>La fonction du MEGA est faire&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>le homing des axes&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>&amp;amp; de se positionner en X &amp;amp; Y&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>&amp;amp; actionner l axe Z&lt;/span>&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:6pt;&quot;>&lt;br />&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>Le MEGA reçoit la position demandée en Pixel&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>pour l axe X &amp;amp; l axe Y&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>Le prg en déduit une erreur par rapport à la&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;> position réelle actuelle&lt;/span>&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:6pt;&quot;>&lt;br />&lt;/p>&lt;/body>&lt;/html>" x="430" y="440"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>MEGA&lt;/p>&lt;/body>&lt;/html>" x="690" y="140"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>220VAC&lt;/p>&lt;/body>&lt;/html>" x="80" y="30"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>12VDC&lt;/p>&lt;/body>&lt;/html>" x="50" y="200"/>
+            <input text="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;>&#xa;&lt;html>&lt;head>&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; />&lt;style type=&quot;text/css&quot;>&#xa;p, li { white-space: pre-wrap; }&#xa;&lt;/style>&lt;/head>&lt;body style=&quot; font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;&quot;>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>en fonction de la photo et du traitement&lt;/span>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:6pt;&quot;>envoie des positions pour chaque pièces&lt;/span>&lt;/p>&lt;/body>&lt;/html>" x="400" y="330"/>
+        </inputs>
+        <shapes>
+            <shape type="Line" x1="590" y1="470" y2="350" x2="670" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Line" x1="460" y1="330" y2="250" x2="510" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Line" x1="300" y1="320" y2="280" x2="350" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Rectangle" x1="680" y1="300" y2="480" x2="780" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Rectangle" x1="640" y1="130" y2="570" x2="780" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Line" x1="440" y1="250" y2="250" x2="640" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Rectangle" x1="340" y1="130" y2="320" x2="440" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Rectangle" x1="120" y1="370" y2="520" x2="220" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Line" x1="170" y1="260" y2="260" x2="340" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Line" x1="170" y1="370" y2="260" x2="170" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Rectangle" x1="340" y1="220" y2="290" x2="360" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+            <shape type="Ellipse" x1="190" y1="410" y2="470" x2="250" is_movable="1" closed="0">
+                <pen widthF="1" style="DashLine" color="#000000"/>
+                <brush style="NoBrush" color="#000000"/>
+            </shape>
+        </shapes>
+    </diagram>
+    <collection>
+        <category name="import">
+            <names>
+                <name lang="es">Elementos importados</name>
+                <name lang="hr">Uvezeni elementi</name>
+                <name lang="pl">Elementy importowane</name>
+                <name lang="fr">Éléments importés</name>
+                <name lang="en">Imported elements</name>
+                <name lang="cs">Zavedené prvky</name>
+                <name lang="ca">Elements importats</name>
+                <name lang="pt">elementos importados</name>
+                <name lang="el">Εισηγμένα στοιχεία</name>
+                <name lang="nl">Elementen geïmporteerd</name>
+                <name lang="de">Importierte elemente</name>
+                <name lang="ro">Elemente importate</name>
+                <name lang="ru">Импортированные элементы</name>
+                <name lang="it">Elementi importati</name>
+            </names>
+            <category name="20_logic">
+                <names>
+                    <name lang="es">Lógica</name>
+                    <name lang="pl">Programowanie</name>
+                    <name lang="cs">Logika</name>
+                    <name lang="fr">Logique</name>
+                    <name lang="en">Logic</name>
+                    <name lang="el">Λογικά κυκλώματα</name>
+                    <name lang="nl">Logica</name>
+                    <name lang="da">Logik</name>
+                    <name lang="de">Logik</name>
+                    <name lang="it">Logica</name>
+                    <name lang="ru">Логика</name>
+                </names>
+                <category name="10_functions">
+                    <names>
+                        <name lang="es">Puertas lógicas</name>
+                        <name lang="be">Logische poorten</name>
+                        <name lang="pl">Bloki funkcyjne (FBD)</name>
+                        <name lang="en">Logic gates</name>
+                        <name lang="fr">Fonctions logiques</name>
+                        <name lang="cs">Logické funkce</name>
+                        <name lang="pt">Portas lógicas</name>
+                        <name lang="el">Λογικές πύλες</name>
+                        <name lang="nl">Functie Plan (FUP)</name>
+                        <name lang="da">Logik funktioner</name>
+                        <name lang="ar">وظائف منطقيّة</name>
+                        <name lang="de">Logikfunktionen</name>
+                        <name lang="ru">Логические устройства</name>
+                        <name lang="it">Porte logiche</name>
+                    </names>
+                    <element name="entree.elmt">
+                        <definition link_type="simple" type="element" hotspot_x="24" width="70" hotspot_y="40" height="80" orientation="dyyy" version="0.5">
+                            <uuid uuid="{b178519f-09fc-4d37-bca4-71525f7306f7}"/>
+                            <names>
+                                <name lang="de">Eingang</name>
+                                <name lang="el">Είσοδος</name>
+                                <name lang="fr">Entrée</name>
+                                <name lang="cs">Vstup</name>
+                                <name lang="ru">Вход</name>
+                                <name lang="es">Entrada</name>
+                                <name lang="ar">دخل</name>
+                                <name lang="it">Ingresso</name>
+                                <name lang="pl">Wejście</name>
+                                <name lang="en">Input</name>
+                                <name lang="pt">Entrada</name>
+                                <name lang="nl">Ingang</name>
+                            </names>
+                            <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+                            <description>
+                                <line antialias="false" x1="40" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="0" y2="0" x2="20" length2="1.5" length1="1.5" end1="none"/>
+                                <input text="_" x="25" rotate="true" size="8" y="-10" tagg="none"/>
+                                <input text="_" x="-25" rotate="true" size="9" y="50" tagg="label"/>
+                                <text text="I" x="-2" size="12" y="5"/>
+                                <rect antialias="false" x="-20" style="line-style:normal;line-weight:normal;filling:none;color:black" width="40" y="-35" height="70"/>
+                                <terminal x="40" y="0" orientation="e"/>
+                            </description>
+                        </definition>
+                    </element>
+                </category>
+            </category>
+            <category name="10_electric">
+                <names>
+                    <name lang="es">Eléctrica</name>
+                    <name lang="pl">Elektrotechnika</name>
+                    <name lang="cs">Elektrotechnika</name>
+                    <name lang="en">Electric</name>
+                    <name lang="fr">Electrique</name>
+                    <name lang="el">Ηλεκτρικά</name>
+                    <name lang="nl">Elektrotechniek</name>
+                    <name lang="da">Elektrisk</name>
+                    <name lang="de">Elektrik</name>
+                    <name lang="it">Elettrica</name>
+                    <name lang="ru">Электротехника</name>
+                </names>
+                <category name="11_singlepole">
+                    <names>
+                        <name lang="es">Polo simple</name>
+                        <name lang="pl">Schematy jednoliniowe</name>
+                        <name lang="cs">Jednopólové</name>
+                        <name lang="fr">Unifilaire</name>
+                        <name lang="en">Single pole</name>
+                        <name lang="el">Μονογραμμικό</name>
+                        <name lang="nl">Enkel pool</name>
+                        <name lang="da">Enkel leder</name>
+                        <name lang="de">Einpolig</name>
+                        <name lang="it">Unifilare</name>
+                        <name lang="ru">Однополюсные</name>
+                    </names>
+                    <category name="200_fuses&amp;protective_gears">
+                        <names>
+                            <name lang="pl">Łączniki i zabezpieczenia</name>
+                            <name lang="cs">Pojistky a ochrany</name>
+                            <name lang="en">Fuses and protective gears</name>
+                            <name lang="fr">Fusibles et protections</name>
+                            <name lang="nl">Zekeringen en beveiligingen</name>
+                            <name lang="el">Ασφάλειες και διατάξεις προστασίας</name>
+                            <name lang="de">Sicherungen und Schutzeinrichtungen</name>
+                            <name lang="ru">Предохранители и элементы защиты</name>
+                            <name lang="it">Fusibili e protezioni</name>
+                        </names>
+                        <category name="11_circuit_breakers">
+                            <names>
+                                <name lang="es">Disyuntores</name>
+                                <name lang="pl">Wyłączniki</name>
+                                <name lang="en">Circuit-breakers</name>
+                                <name lang="fr">Disjoncteurs</name>
+                                <name lang="cs">Jističe</name>
+                                <name lang="pt">Disjuntores</name>
+                                <name lang="nl">Lastscheiders</name>
+                                <name lang="el">Αυτόματοι διακόπτες</name>
+                                <name lang="de">Leitungsschutzschalter und Lastschalter</name>
+                                <name lang="ar">قواطع</name>
+                                <name lang="ru">Выключатели</name>
+                                <name lang="it">Relè termici</name>
+                            </names>
+                            <element name="disjonct-m.elmt">
+                                <definition link_type="master" type="element" hotspot_x="10" width="20" hotspot_y="34" height="60" orientation="dyyy" version="0.4">
+                                    <uuid uuid="{38BB65BB-7001-40CE-9CCB-1B1859345616}"/>
+                                    <names>
+                                        <name lang="ar">قاطع أحدي القطب</name>
+                                        <name lang="de">Leitungsschutzschalter 1P</name>
+                                        <name lang="en">Circuit-breaker</name>
+                                        <name lang="it">Int. Aut. Magneto-termico 1P</name>
+                                        <name lang="fr">Disjoncteur unipolaire</name>
+                                        <name lang="pl">Wyłącznik</name>
+                                        <name lang="nl">Lastscheider 1</name>
+                                        <name lang="cs">Jednopólový jistič</name>
+                                    </names>
+                                    <kindInformations>
+                                        <kindInformation name="type" show="1">protection</kindInformation>
+                                    </kindInformations>
+                                    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+                                    <description>
+                                        <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="16" y2="20" x2="0" length2="1.5" length1="1.5" end1="none"/>
+                                        <polygon x3="-5" antialias="true" x1="0" y3="-20" style="line-style:normal;line-weight:normal;filling:none;color:black" y1="3" y2="0" x2="0" closed="false"/>
+                                        <input text="_" x="6" size="9" y="-6.3334" tagg="label"/>
+                                        <arc antialias="true" start="90" x="-4" style="line-style:normal;line-weight:normal;filling:none;color:black" width="8" y="10.5" angle="-180" height="5"/>
+                                        <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="8" y2="10" x2="0" length2="1.5" length1="1.5" end1="none"/>
+                                        <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="8" y2="8" x2="5" length2="1.5" length1="1.5" end1="none"/>
+                                        <line antialias="false" x1="5" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="3" y2="8" x2="5" length2="1.5" length1="1.5" end1="none"/>
+                                        <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="3" y2="3" x2="5" length2="1.5" length1="1.5" end1="none"/>
+                                        <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="-30" y2="-20" x2="0" length2="1.5" length1="1.5" end1="none"/>
+                                        <line antialias="true" x1="2" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="-22" y2="-18" x2="-2" length2="1.5" length1="1.5" end1="none"/>
+                                        <line antialias="true" x1="-2" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="-22" y2="-18" x2="2" length2="1.5" length1="1.5" end1="none"/>
+                                        <terminal x="0" y="20" orientation="s"/>
+                                        <terminal x="0" y="-30" orientation="n"/>
+                                    </description>
+                                </definition>
+                            </element>
+                        </category>
+                    </category>
+                    <category name="330_transformers&amp;power_supplies">
+                        <names>
+                            <name lang="es">Transformadores y fuentes de poder</name>
+                            <name lang="pl">Transformatory i zasilacze</name>
+                            <name lang="cs">Měniče a dodávky elektřiny</name>
+                            <name lang="en">Transformators and power supplies</name>
+                            <name lang="fr">Transformateurs et alimentations</name>
+                            <name lang="nl">Transformatoren en Voedingen</name>
+                            <name lang="el">Μετασχηματιστές και παροχές ισχύος</name>
+                            <name lang="de">Transformatoren und Versorgungen</name>
+                            <name lang="ru">Трансформаторы и источники питания</name>
+                            <name lang="it">Trasformatori e alimentatori</name>
+                        </names>
+                        <category name="10_transformers">
+                            <names>
+                                <name lang="es">Transformadores</name>
+                                <name lang="pl">Transformatory</name>
+                                <name lang="en">Transformers</name>
+                                <name lang="fr">Transformateurs</name>
+                                <name lang="cs">Měniče</name>
+                                <name lang="pt">Transformadores</name>
+                                <name lang="el">Μετασχηματιστές</name>
+                                <name lang="nl">Transformatoren</name>
+                                <name lang="de">Transformatoren</name>
+                                <name lang="ar">مُحوّلات</name>
+                                <name lang="ru">Трансформаторы</name>
+                                <name lang="it">Trasformatori</name>
+                            </names>
+                            <element name="transformator_1f_1.elmt">
+                                <definition type="element" hotspot_x="17" ic="true" width="50" hotspot_y="45" height="90" orientation="dyyy" version="0.4">
+                                    <uuid uuid="{918B818A-7409-4AB5-9301-95F9C373A8CD}"/>
+                                    <names>
+                                        <name lang="ar">محوّل أحادي الوجه</name>
+                                        <name lang="de">Transformator einphasig</name>
+                                        <name lang="ru">Однофазный трансформатор</name>
+                                        <name lang="pt">Transformador monofásico</name>
+                                        <name lang="en">Single phase transducer</name>
+                                        <name lang="it">Trasformatore monofase</name>
+                                        <name lang="fr">Transformateur monophasé</name>
+                                        <name lang="pl">Transformator jednofazowy</name>
+                                        <name lang="es">Transformador monofásico</name>
+                                        <name lang="cs">Jednofázový transformátor</name>
+                                        <name lang="nl">wisselspanning transformator</name>
+                                        <name lang="el">Μονοφασικός μετασχηματιστής</name>
+                                    </names>
+                                    <informations>Author: The QElectroTech team
+License: see http://qelectrotech.org/wiki/doc/elements_license</informations>
+                                    <description>
+                                        <circle antialias="true" x="-15" style="line-style:normal;line-weight:normal;filling:none;color:black" y="-25" diameter="30"/>
+                                        <circle antialias="true" x="-15" style="line-style:normal;line-weight:normal;filling:none;color:black" y="-5" diameter="30"/>
+                                        <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="-40" y2="-25" x2="0" length2="1.5" length1="1.5" end1="none"/>
+                                        <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="25" y2="40" x2="0" length2="1.5" length1="1.5" end1="none"/>
+                                        <input text="_" x="17" rotate="true" size="9" y="0" tagg="label"/>
+                                        <terminal name="" x="0" y="-40" orientation="n" nameHidden="0" number=""/>
+                                        <terminal name="" x="0" y="40" orientation="s" nameHidden="0" number=""/>
+                                    </description>
+                                </definition>
+                            </element>
+                        </category>
+                    </category>
+                    <category name="140_connectors&amp;plugs">
+                        <names>
+                            <name lang="es">Conectores y Enchufes</name>
+                            <name lang="pl">Złącza wtykowe</name>
+                            <name lang="cs">Zástrčky a zdířky</name>
+                            <name lang="en">Connectors and plugs</name>
+                            <name lang="fr">Connecteurs et prises</name>
+                            <name lang="nl">Connectoren en pluggen</name>
+                            <name lang="el">Σύνδεσμοι και πρίζες</name>
+                            <name lang="de">Stecker und Buchsen</name>
+                            <name lang="ru">Соединители и разъемы</name>
+                            <name lang="it">Connettori e prese</name>
+                        </names>
+                        <element name="prise_multipolaire_2.elmt">
+                            <definition type="element" hotspot_x="5" width="10" hotspot_y="0" height="30" orientation="dyyy" version="0.3">
+                                <uuid uuid="{0EE598EC-C72A-43A3-B330-741E2D41940A}"/>
+                                <names>
+                                    <name lang="ar">قابس و مقبس متعدد الأقطاب, تمثيل أحادي الخط</name>
+                                    <name lang="de">Steckverbindung komplett mit 6 Kontakten</name>
+                                    <name lang="en">Plug and multipolar representation
+unifilar</name>
+                                    <name lang="it">Spina e presa multipolari, rappresentazione unifilare</name>
+                                    <name lang="fr">Prise et fiche multipolaires, représentation
+unifilaire
+</name>
+                                    <name lang="pl">Złącze wielostykowe</name>
+                                    <name lang="es">Conector multipolar, representación unifilar</name>
+                                    <name lang="cs">Zásuvka a zástrčka vícepólová, v jednopólovém znázornění</name>
+                                    <name lang="nl">Steker en Contact veelpolig enkellijns</name>
+                                </names>
+                                <informations>EN 60617: 03-03-08</informations>
+                                <description>
+                                    <line antialias="false" x1="-5" style="line-style:normal;line-weight:thin;filling:none;color:black" end2="none" y1="13" y2="20" x2="4" length2="1.5" length1="1.5" end1="none"/>
+                                    <line antialias="false" x1="-1" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="12" y2="19" x2="-1" length2="1.5" length1="1.5" end1="none"/>
+                                    <input text="6" x="1" rotate="true" size="5" y="20.5"/>
+                                    <input text="_" x="7" rotate="true" size="8" y="14.5" tagg="label"/>
+                                    <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="12" y2="30" x2="0" length2="1.5" length1="1.5" end1="none"/>
+                                    <line antialias="false" x1="0" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="9" y2="0" x2="0" length2="1.5" length1="1.5" end1="none"/>
+                                    <line antialias="false" x1="1" style="line-style:normal;line-weight:normal;filling:none;color:black" end2="none" y1="12" y2="19" x2="1" length2="1.5" length1="1.5" end1="none"/>
+                                    <arc antialias="true" start="-180" x="-3" style="line-style:normal;line-weight:normal;filling:none;color:black" width="6" y="10" angle="-180" height="6"/>
+                                    <terminal x="0" y="0" orientation="n"/>
+                                    <terminal x="0" y="30" orientation="s"/>
+                                </description>
+                            </definition>
+                        </element>
+                    </category>
+                </category>
+            </category>
+        </category>
+    </collection>
+</project>
